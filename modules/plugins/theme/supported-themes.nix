@@ -94,7 +94,7 @@ in {
       -- setup must be called before loading
       vim.cmd.colorscheme "catppuccin"
     '';
-    styles = ["latte" "frappe" "macchiato" "mocha"];
+    styles = ["latte" "frappe" "macchiato" "mocha" "auto"];
   };
 
   oxocarbon = {
