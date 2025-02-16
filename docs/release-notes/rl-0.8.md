@@ -143,9 +143,30 @@
 
 [ARCIII](https://github.com/ArmandoCIII):
 
+[leetcode.nvim]: https://github.com/kawre/leetcode.nvim
+
 - Add `vim.languages.zig.dap` support through pkgs.lldb dap adapter. Code
   Inspiration from `vim.languages.clang.dap` implementation.
+- Add [leetcode.nvim] plugin under `vim.utility.leetcode-nvim`.
+
 
 [nezia1](https://github.com/nezia1)
 
 - Add support for [nixd](https://github.com/nix-community/nixd) language server.
+
+[folospior](https://github.com/folospior)
+
+- Fix plugin name for lsp/lspkind.
+
+[iynaix](https://github.com/iynaix)
+
+- Add lsp options support for [nixd](https://github.com/nix-community/nixd)
+  language server.
+
+[Mr-Helpful](https://github.com/Mr-Helpful)
+
+- Corrects pin names used for nvim themes
+
+[Libadoxon](https://github.com/Libadoxon)
+
+- Add [git-conflict](https://github.com/akinsho/git-conflict.nvim) plugin for resolving git conflicts
