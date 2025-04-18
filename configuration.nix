@@ -25,7 +25,6 @@ isMaximal: {
       trouble.enable = true;
       lspSignature.enable = true;
       otter-nvim.enable = isMaximal;
-      lsplines.enable = isMaximal;
       nvim-docs-view.enable = isMaximal;
     };
 
@@ -82,6 +81,7 @@ isMaximal: {
       elixir.enable = false;
       haskell.enable = false;
       ruby.enable = false;
+      fsharp.enable = false;
 
       tailwind.enable = false;
       svelte.enable = false;
@@ -173,17 +173,18 @@ isMaximal: {
     utility = {
       ccc.enable = false;
       vim-wakatime.enable = false;
-      icon-picker.enable = isMaximal;
-      surround.enable = isMaximal;
       diffview-nvim.enable = true;
       yanky-nvim.enable = false;
+      icon-picker.enable = isMaximal;
+      surround.enable = isMaximal;
       leetcode-nvim.enable = isMaximal;
+      multicursors.enable = isMaximal;
+
       motion = {
         hop.enable = true;
         leap.enable = true;
         precognition.enable = isMaximal;
       };
-
       images = {
         image-nvim.enable = false;
       };
@@ -233,6 +234,7 @@ isMaximal: {
         enable = false;
         cmp.enable = isMaximal;
       };
+      codecompanion-nvim.enable = false;
     };
 
     session = {

@@ -34,6 +34,22 @@
     };
   };
 
+  defaultFormat = "gofmt";
+  formats = {
+    gofmt = {
+      package = pkgs.go;
+      config.command = "${cfg.format.package}/bin/gofmt";
+    };
+    gofumpt = {
+      package = pkgs.gofumpt;
+      config.command = getExe cfg.format.package;
+    };
+    golines = {
+      package = pkgs.golines;
+      config.command = "${cfg.format.package}/bin/golines";
+    };
+  };
+
   defaultDebugger = "delve";
   debuggers = {
     delve = {
@@ -67,6 +83,22 @@ in {
       };
     };
 
+    format = {
+      enable = mkEnableOption "Go formatting" // {default = config.vim.languages.enableFormat;};
+
+      type = mkOption {
+        description = "Go formatter to use";
+        type = enum (attrNames formats);
+        default = defaultFormat;
+      };
+
+      package = mkOption {
+        description = "Go formatter package";
+        type = package;
+        default = formats.${cfg.format.type}.package;
+      };
+    };
+
     dap = {
       enable = mkOption {
         description = "Enable Go Debug Adapter via nvim-dap-go plugin";
@@ -97,6 +129,14 @@ in {
     (mkIf cfg.lsp.enable {
       vim.lsp.lspconfig.enable = true;
       vim.lsp.lspconfig.sources.go-lsp = servers.${cfg.lsp.server}.lspConfig;
+    })
+
+    (mkIf cfg.format.enable {
+      vim.formatter.conform-nvim = {
+        enable = true;
+        setupOpts.formatters_by_ft.go = [cfg.format.type];
+        setupOpts.formatters.${cfg.format.type} = formats.${cfg.format.type}.config;
+      };
     })
 
     (mkIf cfg.dap.enable {
